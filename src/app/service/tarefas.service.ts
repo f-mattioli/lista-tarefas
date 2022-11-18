@@ -41,6 +41,9 @@ export class TarefasService {
   }
 
   public async addTarefa(tarefa : Tarefa) {
+    if(tarefa.dataLimite&&tarefa.dataLimite.length>10)
+    tarefa.dataLimite=tarefa.dataLimite.substring(0,10);
+    
     if (typeof(tarefa.prioridade) == "string") {
       tarefa.prioridade =
       parseInt(tarefa.prioridade);
